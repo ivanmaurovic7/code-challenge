@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux'
-import searchFormReducer from './searchFormReducer'
-import searchResultsReducer from './searchResultsReducer'
-import sidebarReducer from './sidebarReducer'
+import loginFormReducer from './loginFormReducer'
+import encoderReducer from './encoderReducer'
 
 export default () => combineReducers({
-  searchForm: searchFormReducer,
-  searchResults: searchResultsReducer,
-  sidebar: sidebarReducer,
+  loginForm: loginFormReducer,
+  encoder: encoderReducer,
 })

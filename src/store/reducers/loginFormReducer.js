@@ -1,23 +1,29 @@
   import {
-    THROW_ERROR,
-    CLEAR_ERROR,
+    LOGIN_SUCCESS,
     LOADING,
     NOT_LOADING,
-    SET_SEARCH_QUERY,
+    CLEAR_ERROR,
+    SET_ERROR,
+    SET_EMAIL,
+    SET_PASSWORD,
+    SET_TOKEN,
   } from '../actions/types'
   
   const initialState = {
     error: null,
     loading: false,
-    searchQuery: '',
+    email: '',
+    password: '',
+    token: null,
   }
   
   export default function(state = initialState, action) {
     switch (action.type) {
-      case SET_SEARCH_QUERY:
+      case LOGIN_SUCCESS:
         return {
           ...state,
-          searchQuery: action.payload,
+          token: action.payload,
+          loading: false,
         }
       case LOADING:
         return {
@@ -29,15 +35,31 @@
           ...state,
           loading: false,
         }
+      case SET_ERROR:
+        return {
+          ...state,
+          error: action.payload,
+          loading: false
+        }
       case CLEAR_ERROR:
         return {
           ...state,
           error: null,
         }
-      case THROW_ERROR:
+      case SET_EMAIL:
         return {
           ...state,
-          error: action.payload,
+          email: action.payload,
+        }
+      case SET_PASSWORD:
+        return {
+          ...state,
+          password: action.payload,
+        }
+      case SET_TOKEN:
+        return {
+          ...state,
+          token: action.payload,
         }
       default:
         return state

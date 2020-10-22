@@ -3,16 +3,12 @@ import { Provider } from 'react-redux'
 import store from './store'
 import './App.sass'
 
-import SearchForm from './components/SearchForm'
-import SearchResults from './components/SearchResults'
-import Sidebar from './components/Sidebar'
+import AppWrapper from './components/AppWrapper'
 
 function App() {
   return (
     <Provider store={store}>
-      <SearchForm/>
-      <SearchResults/>
-      <Sidebar/>
+      <AppWrapper/>
     </Provider>
   )
 }
